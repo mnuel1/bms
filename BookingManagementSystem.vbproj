@@ -77,12 +77,34 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\Accountant\accountantBookingControl.Designer.vb">
+      <DependentUpon>accountantBookingControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantBookingControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantPaymentControl.Designer.vb">
+      <DependentUpon>accountantPaymentControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantPaymentControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantRefundControl.Designer.vb">
+      <DependentUpon>accountantRefundControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantRefundControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantReportControl.Designer.vb">
+      <DependentUpon>accountantReportControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Accountant\accountantReportControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Control\BookingsControl.Designer.vb">
       <DependentUpon>BookingsControl.vb</DependentUpon>
     </Compile>
-    <Compile Include="Control\BookingsControl.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Control\BookingsControl.vb" />
     <Compile Include="Control\CustomersControl.Designer.vb">
       <DependentUpon>CustomersControl.vb</DependentUpon>
     </Compile>
@@ -149,8 +171,21 @@
     <Compile Include="Control\UsersControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="SessionInfo.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Control\Accountant\accountantBookingControl.resx">
+      <DependentUpon>accountantBookingControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Accountant\accountantPaymentControl.resx">
+      <DependentUpon>accountantPaymentControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Accountant\accountantRefundControl.resx">
+      <DependentUpon>accountantRefundControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\BookingsControl.resx">
+      <DependentUpon>BookingsControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\CustomersControl.resx">
       <DependentUpon>CustomersControl.vb</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\ClerkDashboard.resx">
+      <DependentUpon>ClerkDashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>

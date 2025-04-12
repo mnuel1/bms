@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class BookingsControl
+Partial Class accountantPaymentControl
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -24,11 +24,11 @@ Partial Class BookingsControl
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'BookingsControl
+        'accountantPaymentControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Name = "BookingsControl"
+        Me.Name = "accountantPaymentControl"
         Me.ResumeLayout(False)
 
     End Sub

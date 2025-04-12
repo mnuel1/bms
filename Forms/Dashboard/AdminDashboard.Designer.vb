@@ -46,6 +46,7 @@ Partial Class AdminDashboard
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
@@ -56,8 +57,13 @@ Partial Class AdminDashboard
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(646, 402)
-        Me.SplitContainer1.SplitterDistance = 215
+        Me.SplitContainer1.Panel1.Padding = New System.Windows.Forms.Padding(5)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(5)
+        Me.SplitContainer1.Size = New System.Drawing.Size(851, 529)
+        Me.SplitContainer1.SplitterDistance = 213
         Me.SplitContainer1.TabIndex = 0
         '
         'Panel5
@@ -149,7 +155,7 @@ Partial Class AdminDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(646, 402)
+        Me.ClientSize = New System.Drawing.Size(851, 529)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "AdminDashboard"
         Me.Text = "AdminDashboard"

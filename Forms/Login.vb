@@ -1,44 +1,47 @@
 ﻿Public Class Login
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Prevent resizing of the form
         Me.FormBorderStyle = FormBorderStyle.FixedDialog
-        Me.MaximizeBox = False   ' Disable the maximize button
-        Me.MinimizeBox = False   ' Disable the minimize button
-
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
     End Sub
 
     Private Sub loginBtn_Click(sender As Object, e As EventArgs) Handles loginBtn.Click
         Dim username As String = usernameTextBox.Text.Trim().ToLower()
         Dim password As String = passwordTextbox.Text
 
-        Select Case username
-            Case "admin"
-                If password = "admin123" Then
+        Dim query As String = "SELECT * FROM user WHERE LOWER(Username) = @Username AND Password = @Password AND Status = 'Active'"
+        Dim parameters As New Dictionary(Of String, Object) From {
+            {"@Username", username},
+            {"@Password", password}
+        }
+
+        Dim dt As DataTable = GetData(query, parameters)
+
+        If dt.Rows.Count = 1 Then
+            Dim userRow As DataRow = dt.Rows(0)
+
+            ' Store session info
+            SessionInfo.LoggedInUserID = Convert.ToInt32(userRow("UserID"))
+            SessionInfo.LoggedInUserFullName = userRow("FullName").ToString()
+            SessionInfo.LoggedInUserLevel = userRow("UserLevelName").ToString()
+
+            ' Open dashboard based on user level
+            Select Case SessionInfo.LoggedInUserLevel
+                Case "Administrator"
                     AdminDashboard.Show()
-                    Me.Hide()
-                Else
-                    MessageBox.Show("Wrong password for Admin.")
-                End If
-
-            Case "staff"
-                If password = "staff123" Then
-                    StaffDashboard.Show()
-                    Me.Hide()
-                Else
-                    MessageBox.Show("Wrong password for Staff.")
-                End If
-
-            Case "clerk"
-                If password = "clerk123" Then
+                Case "Accountant/Clerk"
                     ClerkDashboard.Show()
-                    Me.Hide()
-                Else
-                    MessageBox.Show("Wrong password for Clerk.")
-                End If
+                Case "Staff"
+                    StaffDashboard.Show()
+                Case Else
+                    MessageBox.Show("Unknown user level.")
+                    Return
+            End Select
 
-            Case Else
-                MessageBox.Show("Invalid username.")
-        End Select
+            Me.Hide()
+        Else
+            MessageBox.Show("Invalid username or password, or the account is inactive.")
+        End If
     End Sub
 End Class

@@ -5,6 +5,10 @@
         SplitContainer1.Panel2.Controls.Add(newContent)
     End Sub
 
+    Private Sub AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadContent(New UsersControl()) ' Load UsersControl on startup
+    End Sub
+
     Private Sub usersNav_Click(sender As Object, e As EventArgs) Handles usersNav.Click
         LoadContent(New UsersControl())
     End Sub
@@ -27,4 +31,7 @@
         Login.Show()
     End Sub
 
+    Private Sub SplitContainer1_Panel2_Paint(sender As Object, e As PaintEventArgs) Handles SplitContainer1.Panel2.Paint
+
+    End Sub
 End Class

@@ -21,3 +21,8 @@ C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSyste
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.CustomersControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.UsersControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.vbproj.CopyComplete
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.ClerkDashboard.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.AccountantBookingControl.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.AccountantRefundControl.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.AccountantPaymentControl.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.ComboItem.resources
