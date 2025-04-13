@@ -169,8 +169,10 @@ Partial Class Login
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(665, 357)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Login"
         Me.Text = "Login"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)

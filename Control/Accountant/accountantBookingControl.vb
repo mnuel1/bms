@@ -16,6 +16,10 @@ Public Class AccountantBookingControl
         LoadBookings()
     End Sub
 
+    Private Sub AccountantBookingControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
     Private Sub SetupLayout()
         ' Bookings Grid
         dgvBookings = New DataGridView With {

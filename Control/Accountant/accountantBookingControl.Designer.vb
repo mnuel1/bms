@@ -24,11 +24,11 @@ Partial Class AccountantBookingControl
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'accountantBookingControl
+        'AccountantBookingControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Name = "accountantBookingControl"
+        Me.Name = "AccountantBookingControl"
         Me.ResumeLayout(False)
 
     End Sub

@@ -26,3 +26,7 @@ C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSyste
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.AccountantRefundControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.AccountantPaymentControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.ComboItem.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffBookingControl.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffCustomerControl.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffVenueControl.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffDashboard.resources

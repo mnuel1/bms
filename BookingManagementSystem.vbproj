@@ -117,6 +117,24 @@
     <Compile Include="Control\ReportsControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Control\Staff\StaffBookingControl.Designer.vb">
+      <DependentUpon>StaffBookingControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Staff\StaffBookingControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Staff\StaffCustomerControl.Designer.vb">
+      <DependentUpon>StaffCustomerControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Staff\StaffCustomerControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Staff\StaffVenueControl.Designer.vb">
+      <DependentUpon>StaffVenueControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Staff\StaffVenueControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DatabaseHelper.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -189,6 +207,15 @@
     <EmbeddedResource Include="Control\CustomersControl.resx">
       <DependentUpon>CustomersControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\Staff\StaffBookingControl.resx">
+      <DependentUpon>StaffBookingControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Staff\StaffCustomerControl.resx">
+      <DependentUpon>StaffCustomerControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Staff\StaffVenueControl.resx">
+      <DependentUpon>StaffVenueControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Control\UsersControl.resx">
       <DependentUpon>UsersControl.vb</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\ClerkDashboard.resx">
       <DependentUpon>ClerkDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\StaffDashboard.resx">
+      <DependentUpon>StaffDashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
@@ -223,8 +253,6 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Dashboard\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -5,8 +5,8 @@ Public Class CustomersControl
     Inherits UserControl
 
     Private customersGrid As DataGridView
-    Private txtFirstName, txtLastName, txtMiddleName, txtContact, txtEmail, txtAddress, txtCity, txtProvince, txtZip, txtCustomerType As TextBox
-    Private cmbGender, cmbStatus As ComboBox
+    Private txtFirstName, txtLastName, txtMiddleName, txtContact, txtEmail, txtAddress, txtCity, txtProvince, txtZip As TextBox
+    Private cmbCustomerType, cmbGender, cmbStatus As ComboBox
 
     Private Sub CustomersControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -41,13 +41,15 @@ Public Class CustomersControl
         txtCity = New TextBox()
         txtProvince = New TextBox()
         txtZip = New TextBox()
-        txtCustomerType = New TextBox()
 
         cmbGender = New ComboBox With {.DropDownStyle = ComboBoxStyle.DropDownList}
         cmbGender.Items.AddRange({"Male", "Female", "Other"})
 
         cmbStatus = New ComboBox With {.DropDownStyle = ComboBoxStyle.DropDownList}
         cmbStatus.Items.AddRange({"Active", "Inactive"})
+
+        cmbCustomerType = New ComboBox With {.DropDownStyle = ComboBoxStyle.DropDownList}
+        cmbCustomerType.Items.AddRange({"Regular", "Walk-in", "Corporate"})
 
         dtpBirthDate = New DateTimePicker()
         dtpRegistrationDate = New DateTimePicker()
@@ -102,7 +104,7 @@ Public Class CustomersControl
         layout.Controls.Add(txtZip, 1, 10)
 
         layout.Controls.Add(New Label With {.Text = "Customer Type"}, 0, 11)
-        layout.Controls.Add(txtCustomerType, 1, 11)
+        layout.Controls.Add(cmbCustomerType, 1, 11)
 
         layout.Controls.Add(New Label With {.Text = "Registration Date"}, 0, 12)
         layout.Controls.Add(dtpRegistrationDate, 1, 12)
@@ -149,7 +151,7 @@ Public Class CustomersControl
             {"@City", txtCity.Text},
             {"@Province", txtProvince.Text},
             {"@ZipCode", txtZip.Text},
-            {"@CustomerType", txtCustomerType.Text},
+            {"@CustomerType", cmbCustomerType.Text},
             {"@RegistrationDate", dtpRegistrationDate.Value},
             {"@Status", cmbStatus.Text}
         }
@@ -186,7 +188,7 @@ Public Class CustomersControl
             {"@City", txtCity.Text},
             {"@Province", txtProvince.Text},
             {"@ZipCode", txtZip.Text},
-            {"@CustomerType", txtCustomerType.Text},
+            {"@CustomerType", cmbCustomerType.Text},
             {"@RegistrationDate", dtpRegistrationDate.Value},
             {"@Status", cmbStatus.Text}
         }
@@ -237,7 +239,7 @@ Public Class CustomersControl
             txtCity.Text = row.Cells("City").Value.ToString()
             txtProvince.Text = row.Cells("Province").Value.ToString()
             txtZip.Text = row.Cells("ZipCode").Value.ToString()
-            txtCustomerType.Text = row.Cells("CustomerType").Value.ToString()
+            cmbCustomerType.Text = row.Cells("CustomerType").Value.ToString()
             dtpRegistrationDate.Value = Convert.ToDateTime(row.Cells("RegistrationDate").Value)
             cmbStatus.Text = row.Cells("Status").Value.ToString()
         End If
@@ -253,7 +255,7 @@ Public Class CustomersControl
         txtCity.Clear()
         txtProvince.Clear()
         txtZip.Clear()
-        txtCustomerType.Clear()
+        cmbCustomerType.SelectedIndex = -1
         cmbGender.SelectedIndex = -1
         cmbStatus.SelectedIndex = -1
         dtpBirthDate.Value = DateTime.Now
