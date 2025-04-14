@@ -7,10 +7,11 @@ Public Class AccountantPaymentControl
     Private dgvPayments As DataGridView
 
     ' Input controls
-    Private txtBookingID, txtAmountPaid, txtReference, txtProcessedBy, txtBalance, txtDiscount, txtRefunded, txtRemarks, txtORNumber As TextBox
-    Private cmbPaymentMethod, cmbPaymentStatus As ComboBox
-    Private dtpPaymentDate As DateTimePicker
-    Private txtPaymentTime As TextBox
+    Private txtAmountPaid, txtReference, txtBalance, txtDiscount, txtRefunded, txtRemarks, txtORNumber As TextBox
+
+    Private cmbPaymentMethod, cmbPaymentStatus, cmbBookingID As ComboBox
+    Private dtpPaymentDate, dtpPaymentTime As DateTimePicker
+
 
     Public Sub New()
         InitializeComponent()
@@ -28,25 +29,31 @@ Public Class AccountantPaymentControl
             .AllowUserToAddRows = False
         }
 
-        ' Inputs
-        txtBookingID = New TextBox()
+        ' Inputs        
         txtAmountPaid = New TextBox()
         txtReference = New TextBox()
-        txtProcessedBy = New TextBox()
         txtBalance = New TextBox()
         txtDiscount = New TextBox()
         txtRefunded = New TextBox()
         txtRemarks = New TextBox()
         txtORNumber = New TextBox()
-        txtPaymentTime = New TextBox()
+
+
+        cmbBookingID = New ComboBox With {.DropDownStyle = ComboBoxStyle.DropDownList}
+        LoadBookingDropdown()
+        cmbBookingID.AutoSize = True
 
         cmbPaymentMethod = New ComboBox With {.DropDownStyle = ComboBoxStyle.DropDownList}
-        cmbPaymentMethod.Items.AddRange({"Cash", "Card", "Bank Transfer", "GCash"})
+        cmbPaymentMethod.Items.AddRange({"Cash", "Card", "Bank Transfer"})
 
         cmbPaymentStatus = New ComboBox With {.DropDownStyle = ComboBoxStyle.DropDownList}
-        cmbPaymentStatus.Items.AddRange({"Paid", "Partial", "Unpaid", "Refunded"})
+        cmbPaymentStatus.Items.AddRange({"Full", "Partial", "Overpaid"})
 
         dtpPaymentDate = New DateTimePicker()
+        dtpPaymentTime = New DateTimePicker With {
+            .Format = DateTimePickerFormat.Time,
+            .ShowUpDown = True
+        }
 
         ' Buttons
         Dim btnAddPayment As New Button With {.Text = "Record Payment"}
@@ -63,7 +70,7 @@ Public Class AccountantPaymentControl
         layout.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 70))
 
         layout.Controls.Add(New Label With {.Text = "Booking ID"}, 0, 0)
-        layout.Controls.Add(txtBookingID, 1, 0)
+        layout.Controls.Add(cmbBookingID, 1, 0)
 
         layout.Controls.Add(New Label With {.Text = "Amount Paid"}, 0, 1)
         layout.Controls.Add(txtAmountPaid, 1, 1)
@@ -77,14 +84,11 @@ Public Class AccountantPaymentControl
         layout.Controls.Add(New Label With {.Text = "Payment Status"}, 0, 4)
         layout.Controls.Add(cmbPaymentStatus, 1, 4)
 
-        layout.Controls.Add(New Label With {.Text = "Processed By"}, 0, 5)
-        layout.Controls.Add(txtProcessedBy, 1, 5)
-
         layout.Controls.Add(New Label With {.Text = "Payment Date"}, 0, 6)
         layout.Controls.Add(dtpPaymentDate, 1, 6)
 
         layout.Controls.Add(New Label With {.Text = "Payment Time"}, 0, 7)
-        layout.Controls.Add(txtPaymentTime, 1, 7)
+        layout.Controls.Add(dtpPaymentTime, 1, 7)
 
         layout.Controls.Add(New Label With {.Text = "Balance"}, 0, 8)
         layout.Controls.Add(txtBalance, 1, 8)
@@ -119,7 +123,7 @@ Public Class AccountantPaymentControl
     End Sub
 
     Private Sub btnAddPayment_Click(sender As Object, e As EventArgs)
-        If String.IsNullOrWhiteSpace(txtBookingID.Text) OrElse String.IsNullOrWhiteSpace(txtAmountPaid.Text) Then
+        If String.IsNullOrWhiteSpace(CType(cmbBookingID.SelectedItem, ComboItem).Value) OrElse String.IsNullOrWhiteSpace(txtAmountPaid.Text) Then
             MessageBox.Show("Booking ID and Amount Paid are required.")
             Return
         End If
@@ -130,14 +134,14 @@ Public Class AccountantPaymentControl
                                @ProcessedBy, @PaymentTime, @Balance, @DiscountAmount, @RefundedAmount, @Remarks, @ORNumber, NOW())"
 
         Dim parameters As New Dictionary(Of String, Object) From {
-            {"@BookingID", txtBookingID.Text},
+            {"@BookingID", CType(cmbBookingID.SelectedItem, ComboItem).Value},
             {"@PaymentDate", dtpPaymentDate.Value},
             {"@AmountPaid", txtAmountPaid.Text},
             {"@PaymentMethod", cmbPaymentMethod.Text},
             {"@ReferenceNumber", txtReference.Text},
             {"@PaymentStatus", cmbPaymentStatus.Text},
-            {"@ProcessedBy", txtProcessedBy.Text},
-            {"@PaymentTime", txtPaymentTime.Text},
+            {"@ProcessedBy", SessionInfo.LoggedInUserFullName},
+            {"@PaymentTime", dtpPaymentTime.Value.ToString("HH:mm:ss")},
             {"@Balance", txtBalance.Text},
             {"@DiscountAmount", txtDiscount.Text},
             {"@RefundedAmount", txtRefunded.Text},
@@ -154,19 +158,47 @@ Public Class AccountantPaymentControl
         End If
     End Sub
 
+    Private Sub LoadBookingDropdown()
+        Dim query As String = "
+        SELECT b.BookingID, c.FirstName, c.LastName, e.EventName, s.ServiceName 
+        FROM booking b
+        JOIN customer c ON b.CustomerID = c.CustomerID
+        JOIN event e ON b.EventID = e.EventID
+        JOIN service_availed s ON b.ServiceID = s.ServiceID"
+
+        Dim dt As DataTable = GetData(query)
+
+        cmbBookingID.Items.Clear()
+        For Each row As DataRow In dt.Rows
+            Dim bookingId = row("BookingID")
+            Dim fullName = $"{row("FirstName")} {row("LastName")}"
+            Dim eventName = Abbreviate(row("EventName").ToString())
+            Dim serviceName = Abbreviate(row("ServiceName").ToString())
+            Dim displayText = $"{fullName} - {eventName}/{serviceName}"
+            cmbBookingID.Items.Add(New ComboItem(displayText, bookingId))
+        Next
+    End Sub
+
+    Private Function Abbreviate(name As String) As String
+        If name.Length > 10 Then
+            Return name.Substring(0, 10) & "..."
+        End If
+        Return name
+    End Function
+
+
     Private Sub ClearFields()
-        txtBookingID.Clear()
         txtAmountPaid.Clear()
         txtReference.Clear()
-        txtProcessedBy.Clear()
         txtBalance.Clear()
         txtDiscount.Clear()
         txtRefunded.Clear()
         txtRemarks.Clear()
         txtORNumber.Clear()
-        txtPaymentTime.Clear()
+        cmbBookingID.SelectedIndex = -1
         cmbPaymentMethod.SelectedIndex = -1
         cmbPaymentStatus.SelectedIndex = -1
         dtpPaymentDate.Value = DateTime.Now
+        dtpPaymentTime.Value = DateTime.Now
     End Sub
 End Class

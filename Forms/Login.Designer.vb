@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Login
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Login
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.loginBtn = New System.Windows.Forms.Button()
         Me.usernameTextBox = New System.Windows.Forms.TextBox()
@@ -33,6 +33,7 @@ Partial Class Login
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -40,6 +41,7 @@ Partial Class Login
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'loginBtn
@@ -87,7 +89,7 @@ Partial Class Login
         Me.Panel3.Controls.Add(Me.Panel2)
         Me.Panel3.Controls.Add(Me.Panel1)
         Me.Panel3.Controls.Add(Me.loginBtn)
-        Me.Panel3.Location = New System.Drawing.Point(3, 76)
+        Me.Panel3.Location = New System.Drawing.Point(80, 203)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Padding = New System.Windows.Forms.Padding(2)
         Me.Panel3.Size = New System.Drawing.Size(418, 204)
@@ -128,7 +130,7 @@ Partial Class Login
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Lucida Sans", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 141)
+        Me.Label3.Location = New System.Drawing.Point(41, 288)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(194, 42)
         Me.Label3.TabIndex = 4
@@ -136,19 +138,21 @@ Partial Class Login
         '
         'SplitContainer1
         '
-        Me.SplitContainer1.Location = New System.Drawing.Point(12, 12)
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
         '
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
+        Me.SplitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel3)
-        Me.SplitContainer1.Size = New System.Drawing.Size(641, 333)
-        Me.SplitContainer1.SplitterDistance = 213
+        Me.SplitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.SplitContainer1.Size = New System.Drawing.Size(904, 607)
+        Me.SplitContainer1.SplitterDistance = 300
         Me.SplitContainer1.TabIndex = 6
         '
         'Label4
@@ -156,19 +160,28 @@ Partial Class Login
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Lucida Sans", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(148, 14)
+        Me.Label4.Location = New System.Drawing.Point(225, 141)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(121, 37)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "LOGIN"
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Controls.Add(Me.SplitContainer1)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(907, 636)
+        Me.FlowLayoutPanel1.TabIndex = 7
         '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(665, 357)
-        Me.Controls.Add(Me.SplitContainer1)
+        Me.ClientSize = New System.Drawing.Size(907, 636)
+        Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Login"
         Me.Text = "Login"
@@ -185,6 +198,7 @@ Partial Class Login
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -200,4 +214,5 @@ Partial Class Login
     Friend WithEvents Label3 As Label
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents Label4 As Label
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

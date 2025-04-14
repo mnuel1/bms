@@ -98,7 +98,7 @@ Public Class UsersControl
 
     Private Sub LoadUsers()
         Try
-            Dim query As String = "SELECT UserID, FullName, Username, Password, UserLevelName, Email, PhoneNumber, Status FROM user"
+            Dim query As String = "SELECT UserID, FullName, Username, UserLevelName, Email, PhoneNumber, Status FROM user"
             Dim dt As DataTable = GetData(query)
             usersDataGrid.DataSource = dt
         Catch ex As Exception
@@ -107,16 +107,26 @@ Public Class UsersControl
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs)
-        Dim query As String = "INSERT INTO user (FullName, Username, Password, UserLevelName, Email, PhoneNumber, Status, CreatedAt) VALUES (@FullName, @Username, @Password, @UserLevelName, @Email, @PhoneNumber, @Status, NOW())"
+        Dim hasher As New PasswordHasher(50000, 16, "SHA256")
+
+        Dim passwordResult = hasher.HashPassword(txtPassword.Text)
+
+        Dim query As String = "
+        INSERT INTO user 
+        (FullName, Username, Password, Salt, UserLevelName, Email, PhoneNumber, Status, CreatedAt) 
+        VALUES 
+        (@FullName, @Username, @Password, @Salt, @UserLevelName, @Email, @PhoneNumber, @Status, NOW())"
+
         Dim parameters As New Dictionary(Of String, Object) From {
-            {"@FullName", txtFullName.Text},
-            {"@Username", txtUsername.Text},
-            {"@Password", txtPassword.Text},
-            {"@UserLevelName", cmbRole.Text},
-            {"@Email", txtEmail.Text},
-            {"@PhoneNumber", txtPhone.Text},
-            {"@Status", cmbStatus.Text}
-        }
+        {"@FullName", txtFullName.Text},
+        {"@Username", txtUsername.Text},
+        {"@Password", passwordResult.HashBase64},
+        {"@Salt", passwordResult.SaltBase64},
+        {"@UserLevelName", cmbRole.Text},
+        {"@Email", txtEmail.Text},
+        {"@PhoneNumber", txtPhone.Text},
+        {"@Status", cmbStatus.Text}
+    }
 
         If ExecuteQuery(query, parameters) Then
             MessageBox.Show("User added successfully.")
@@ -124,6 +134,7 @@ Public Class UsersControl
             ClearFields()
         End If
     End Sub
+
 
     Private Sub UsersControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -136,18 +147,29 @@ Public Class UsersControl
         End If
 
         Dim userId As Integer = Convert.ToInt32(usersDataGrid.SelectedRows(0).Cells("UserID").Value)
-
-        Dim query As String = "UPDATE user SET FullName=@FullName, Username=@Username, Password=@Password, UserLevelName=@UserLevelName, Email=@Email, PhoneNumber=@PhoneNumber, Status=@Status WHERE UserID=@UserID"
+        Dim query As String = "UPDATE user SET FullName=@FullName, Username=@Username, UserLevelName=@UserLevelName, Email=@Email, PhoneNumber=@PhoneNumber, Status=@Status"
         Dim parameters As New Dictionary(Of String, Object) From {
-            {"@UserID", userId},
-            {"@FullName", txtFullName.Text},
-            {"@Username", txtUsername.Text},
-            {"@Password", txtPassword.Text},
-            {"@UserLevelName", cmbRole.Text},
-            {"@Email", txtEmail.Text},
-            {"@PhoneNumber", txtPhone.Text},
-            {"@Status", cmbStatus.Text}
-        }
+        {"@UserID", userId},
+        {"@FullName", txtFullName.Text},
+        {"@Username", txtUsername.Text},
+        {"@UserLevelName", cmbRole.Text},
+        {"@Email", txtEmail.Text},
+        {"@PhoneNumber", txtPhone.Text},
+        {"@Status", cmbStatus.Text}
+    }
+
+        ' Only update password & salt if a new password is entered
+        If Not String.IsNullOrWhiteSpace(txtPassword.Text) Then
+            Dim hasher As New PasswordHasher(50000, 16, "SHA256")
+            Dim passwordResult = hasher.HashPassword(txtPassword.Text)
+
+            query &= ", Password=@Password, Salt=@Salt"
+            parameters.Add("@Password", passwordResult.HashBase64)
+            parameters.Add("@Salt", passwordResult.SaltBase64)
+        End If
+
+        ' Final WHERE clause
+        query &= " WHERE UserID=@UserID"
 
         If ExecuteQuery(query, parameters) Then
             MessageBox.Show("User updated successfully.")
@@ -155,6 +177,7 @@ Public Class UsersControl
             ClearFields()
         End If
     End Sub
+
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs)
         If usersDataGrid.SelectedRows.Count = 0 Then
@@ -196,7 +219,7 @@ Public Class UsersControl
             Dim row As DataGridViewRow = usersDataGrid.Rows(e.RowIndex)
             txtFullName.Text = row.Cells("FullName").Value.ToString()
             txtUsername.Text = row.Cells("Username").Value.ToString()
-            txtPassword.Text = row.Cells("Password").Value.ToString()
+            txtPassword.Clear()
             cmbRole.Text = row.Cells("UserLevelName").Value.ToString()
             txtEmail.Text = row.Cells("Email").Value.ToString()
             txtPhone.Text = row.Cells("PhoneNumber").Value.ToString()

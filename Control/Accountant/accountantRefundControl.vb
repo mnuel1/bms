@@ -5,8 +5,12 @@ Public Class AccountantRefundControl
     Inherits UserControl
 
     Private dgvRefunds As DataGridView
-    Private txtPaymentID, txtBookingID, txtRefundAmount, txtDiscountAmount, txtRemarks, txtProcessedBy As TextBox
+    Private txtPaymentID, txtBookingID, txtRefundAmount, txtDiscountAmount, txtRemarks As TextBox
     Private btnProcess As Button
+
+    Private Sub AccountantRefundControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 
     Public Sub New()
         InitializeComponent()
@@ -23,13 +27,16 @@ Public Class AccountantRefundControl
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect,
             .AllowUserToAddRows = False
         }
+        AddHandler dgvRefunds.CellClick, AddressOf dgvRefunds_CellClick
+
 
         txtPaymentID = New TextBox()
         txtBookingID = New TextBox()
         txtRefundAmount = New TextBox()
         txtDiscountAmount = New TextBox()
         txtRemarks = New TextBox()
-        txtProcessedBy = New TextBox()
+        txtPaymentID.ReadOnly = True
+        txtBookingID.ReadOnly = True
 
         btnProcess = New Button With {.Text = "Apply Refund/Discount"}
         AddHandler btnProcess.Click, AddressOf btnProcess_Click
@@ -59,9 +66,6 @@ Public Class AccountantRefundControl
         layout.Controls.Add(New Label With {.Text = "Remarks"}, 0, 4)
         layout.Controls.Add(txtRemarks, 1, 4)
 
-        layout.Controls.Add(New Label With {.Text = "Processed By"}, 0, 5)
-        layout.Controls.Add(txtProcessedBy, 1, 5)
-
         layout.Controls.Add(btnProcess, 1, 6)
 
         Me.Controls.Add(layout)
@@ -79,10 +83,14 @@ Public Class AccountantRefundControl
     End Sub
 
     Private Sub btnProcess_Click(sender As Object, e As EventArgs)
-        If String.IsNullOrWhiteSpace(txtPaymentID.Text) Then
-            MessageBox.Show("Payment ID is required.")
+        If dgvRefunds.SelectedRows.Count = 0 Then
+            MessageBox.Show("Please select a payment record to apply refund/discount.")
             Return
         End If
+
+        Dim selectedRow As DataGridViewRow = dgvRefunds.SelectedRows(0)
+        Dim paymentID As Object = selectedRow.Cells("PaymentID").Value
+        Dim bookingID As Object = selectedRow.Cells("BookingID").Value
 
         Dim refundAmount As Decimal = 0
         Dim discountAmount As Decimal = 0
@@ -90,16 +98,17 @@ Public Class AccountantRefundControl
         Decimal.TryParse(txtDiscountAmount.Text, discountAmount)
 
         Dim query As String = "
-            UPDATE payment 
-            SET RefundedAmount = @RefundedAmount, DiscountAmount = @DiscountAmount, Remarks = @Remarks 
-            WHERE PaymentID = @PaymentID"
+        UPDATE payment 
+        SET RefundedAmount = @RefundedAmount, DiscountAmount = @DiscountAmount, Remarks = @Remarks, ProcessedBy = @ProcessedBy 
+        WHERE PaymentID = @PaymentID"
 
         Dim parameters As New Dictionary(Of String, Object) From {
-            {"@RefundedAmount", refundAmount},
-            {"@DiscountAmount", discountAmount},
-            {"@Remarks", txtRemarks.Text},
-            {"@PaymentID", txtPaymentID.Text}
-        }
+        {"@RefundedAmount", refundAmount},
+        {"@DiscountAmount", discountAmount},
+        {"@Remarks", txtRemarks.Text},
+        {"@ProcessedBy", SessionInfo.LoggedInUserFullName},
+        {"@PaymentID", paymentID}
+    }
 
         If ExecuteQuery(query, parameters) Then
             MessageBox.Show("Refund/Discount processed.")
@@ -110,12 +119,25 @@ Public Class AccountantRefundControl
         End If
     End Sub
 
+    Private Sub dgvRefunds_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+        If e.RowIndex >= 0 AndAlso dgvRefunds.SelectedRows.Count > 0 Then
+            Dim selectedRow As DataGridViewRow = dgvRefunds.Rows(e.RowIndex)
+
+            txtPaymentID.Text = selectedRow.Cells("PaymentID").Value.ToString()
+            txtBookingID.Text = selectedRow.Cells("BookingID").Value.ToString()
+            txtRefundAmount.Text = selectedRow.Cells("RefundedAmount").Value.ToString()
+            txtDiscountAmount.Text = selectedRow.Cells("DiscountAmount").Value.ToString()
+            txtRemarks.Text = selectedRow.Cells("Remarks").Value.ToString()
+        End If
+    End Sub
+
+
+
     Private Sub ClearFields()
         txtPaymentID.Clear()
         txtBookingID.Clear()
         txtRefundAmount.Clear()
         txtDiscountAmount.Clear()
         txtRemarks.Clear()
-        txtProcessedBy.Clear()
     End Sub
 End Class

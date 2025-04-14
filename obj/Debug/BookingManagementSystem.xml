@@ -22,5 +22,30 @@ BookingManagementSystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:BookingManagementSystem.PasswordHasher.#ctor(System.Int32,System.Int32,System.String)">
+ <summary>
+ Initializes a new instance of the PasswordHasher class.
+ </summary>
+ <param name="iterations">Number of PBKDF2 iterations (default: 50000).</param>
+ <param name="saltBytes">Length of the random salt in bytes (default: 16).</param>
+ <param name="hashAlgorithm">Hash algorithm for PBKDF2 (default: SHA256).</param>
+</member>
+<member name="M:BookingManagementSystem.PasswordHasher.HashPassword(System.String)">
+ <summary>
+ Hashes a password using PBKDF2 and returns base64-encoded hash and salt.
+ </summary>
+ <param name="password">The password to hash.</param>
+ <returns>Tuple of (hashBase64, saltBase64).</returns>
+ <exception cref="T:System.ArgumentException">Thrown if password is null or empty.</exception>
+</member>
+<member name="M:BookingManagementSystem.PasswordHasher.VerifyPassword(System.String,System.String,System.String)">
+ <summary>
+ Verifies a password against a stored hash and salt.
+ </summary>
+ <param name="password">The password to verify.</param>
+ <param name="storedHashBase64">Base64-encoded stored hash.</param>
+ <param name="storedSaltBase64">Base64-encoded stored salt.</param>
+ <returns>True if the password matches, False otherwise.</returns>
+</member>
 </members>
 </doc>
