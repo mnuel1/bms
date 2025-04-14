@@ -1,6 +1,5 @@
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.vbproj.AssemblyReference.cache
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.Form1.resources
-C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.Login.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.Resources.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.vbproj.GenerateResource.cache
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.vbproj.CoreCompileInputs.cache
@@ -30,3 +29,4 @@ C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSyste
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffCustomerControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffVenueControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffDashboard.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.PasswordHasher.resources

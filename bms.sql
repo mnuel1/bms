@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2025 at 11:42 AM
+-- Generation Time: Apr 14, 2025 at 05:41 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -54,7 +54,9 @@ INSERT INTO `booking` (`BookingID`, `CustomerID`, `EventID`, `ServiceID`, `Booki
 (2, 102, 202, NULL, '2025-04-03', 'staff1', 'Pending', '10:30:00', '2025-04-20', 800.00, 'Unpaid', NULL, 0.00, 'Not Refunded', '2025-04-03 09:45:00'),
 (3, 103, 203, 302, '2025-04-05', 'staff2', 'Cancelled', '16:00:00', '2025-04-25', 1000.00, 'Partially Paid', 'Client canceled', 50.00, 'Refunded', '2025-04-05 11:00:00'),
 (4, 104, 204, NULL, '2025-04-07', 'admin', 'Confirmed', '12:00:00', '2025-04-30', 2000.00, 'Paid', NULL, 200.00, 'Not Refunded', '2025-04-07 12:30:00'),
-(5, 105, 205, 303, '2025-04-09', 'staff3', 'Pending', '09:00:00', '2025-05-01', 1200.00, 'Unpaid', 'Awaiting confirmation', 0.00, 'Not Refunded', '2025-04-09 08:15:00');
+(5, 105, 205, 303, '2025-04-09', 'staff3', 'Pending', '09:00:00', '2025-05-01', 1200.00, 'Unpaid', 'Awaiting confirmation', 0.00, 'Not Refunded', '2025-04-09 08:15:00'),
+(6, 101, 205, 305, '2025-04-14', 'Admingogo', 'Cancelled', '03:26:19', '2025-04-14', 12345.00, 'Unpaid', 'wala', 0.00, 'Refunded', '2025-04-14 03:26:55'),
+(7, 101, 201, 301, '2025-04-14', 'Leo Santos', 'Cancelled', '03:42:45', '2025-04-14', 132131.00, 'Unpaid', 'asdas', 0.00, 'Not Refunded', '2025-04-14 03:43:36');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,9 @@ INSERT INTO `customer` (`CustomerID`, `FirstName`, `LastName`, `MiddleName`, `Ge
 (102, 'Jane', 'Smith', 'T', 'Female', '1985-05-10', '09281234567', 'jane@example.com', '456 Elm St', 'Quezon City', 'NCR', '1100', 'Walk-in', '2025-03-03 14:00:00', 'Active'),
 (103, 'Carlos', 'Reyes', NULL, 'Male', '1992-08-15', '09181234567', 'carlos@example.com', '789 Pine St', 'Makati', 'NCR', '1200', 'Corporate', '2025-03-05 09:30:00', 'Active'),
 (104, 'Anna', 'Cruz', 'B', 'Female', '1995-02-20', '09301234567', 'anna@example.com', '321 Oak St', 'Pasig', 'NCR', '1600', 'Regular', '2025-03-06 11:45:00', 'Active'),
-(105, 'Leo', 'Garcia', 'T', 'Other', '1988-11-30', '09051234567', 'leo@example.com', '654 Cedar St', 'Taguig', 'NCR', '1630', 'Walk-in', '2025-03-08 13:20:00', 'Inactive');
+(105, 'Leo', 'Garcia', 'T', 'Other', '1988-11-30', '09051234567', 'leo@example.com', '654 Cedar St', 'Taguig', 'NCR', '1630', 'Walk-in', '2025-03-08 13:20:00', 'Inactive'),
+(106, 'test', 'test', 'test', 'Female', '2025-04-14', '09123456789', 'test@gmail.com', 'dito sa tabi', 'gege', 'oo', '123', 'Walk-in', '2025-04-14 02:35:52', 'Active'),
+(108, 'test', 'test', 'est', 'Female', '2025-04-14', '123123', 'asd', 'asd', 'asdasdasd', 'asd', '123', 'Walk-in', '2025-04-14 03:37:59', 'Inactive');
 
 -- --------------------------------------------------------
 
@@ -105,7 +109,7 @@ CREATE TABLE `event` (
   `EventDate` date NOT NULL,
   `StartTime` time NOT NULL,
   `EndTime` time NOT NULL,
-  `VenueLocation` varchar(100) DEFAULT NULL,
+  `VenueLocation` enum('Albay Astrodome','Legazpi Convention Center','Ibalong Centrum for Recreation','Penaranda Park','Cagsawa Ruins Park','Lignon Hill Nature Park','Pacific Mall Event Center','Embarcadero de Legazpi','Avenue Plaza Hotel','CWC (Camsur Watersports Complex)','Villa Caceres Hotel','Biggs Diner Function Hall','Naga City Civic Center','Bicol University Gymnasium','Jardin Real de Naga','Ateneo de Naga University Gym','Sorsogon Capitol Park','Rizal Beach Resort','Misibis Bay Resort','Balay Cena Una','Hotel Venezia','Doña Mercedes Country Lodge') DEFAULT NULL,
   `GuestCount` int(11) DEFAULT NULL,
   `Theme` varchar(100) DEFAULT NULL,
   `SpecialRequests` text DEFAULT NULL,
@@ -120,13 +124,29 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`EventID`, `EventName`, `CustomerID`, `EventType`, `EventDate`, `StartTime`, `EndTime`, `VenueLocation`, `GuestCount`, `Theme`, `SpecialRequests`, `SetupTime`, `CleanupTime`, `Status`, `CreatedDate`) VALUES
-(201, 'Wedding of John & Jane', 101, 'Private', '2025-04-15', '14:00:00', '20:00:00', 'Villa Escudero', 150, 'Rustic', 'Vegan menu', '12:00:00', '22:00:00', 'Upcoming', '2025-03-01 10:00:00'),
-(202, 'Corporate Year-End Party', 102, 'Corporate', '2025-04-20', '18:00:00', '23:00:00', 'Hotel ABC', 200, 'Gatsby', NULL, '16:00:00', '01:00:00', 'Upcoming', '2025-03-03 14:00:00'),
-(203, 'Birthday Bash', 103, 'Private', '2025-04-25', '17:00:00', '22:00:00', 'Beach Resort', 100, 'Tropical', 'Live band', '15:00:00', '23:00:00', 'Cancelled', '2025-03-05 09:30:00'),
-(204, 'Product Launch', 104, 'Corporate', '2025-04-30', '10:00:00', '14:00:00', 'Mall of Asia', 300, 'Modern', NULL, '08:00:00', '16:00:00', 'Upcoming', '2025-03-06 11:45:00'),
-(205, 'Anniversary Celebration', 105, 'Private', '2025-05-01', '12:00:00', '18:00:00', 'Tagaytay Highlands', 80, 'Garden', 'Fireworks', '10:00:00', '20:00:00', 'Upcoming', '2025-03-08 13:20:00'),
-(206, 'test', 101, '', '2025-04-12', '10:25:00', '11:20:00', 'sa tabi', 1, 'test', 'Wala naman', '12:00:00', '12:00:00', 'Upcoming', '2025-04-12 16:50:54'),
-(207, 'test', 101, 'Private', '2025-04-12', '16:58:56', '04:58:56', 'test', 1, 'test', 'wala naman', '16:58:56', '04:58:56', 'Upcoming', '2025-04-12 16:59:21');
+(201, 'Wedding of John & Jane', 101, 'Private', '2025-04-15', '14:00:00', '20:00:00', 'Albay Astrodome', 150, 'Rustic', 'Vegan menu', '12:00:00', '22:00:00', 'Upcoming', '2025-03-01 10:00:00'),
+(202, 'Corporate Year-End Party', 102, 'Corporate', '2025-04-20', '18:00:00', '23:00:00', 'Legazpi Convention Center', 200, 'Gatsby', NULL, '16:00:00', '01:00:00', 'Upcoming', '2025-03-03 14:00:00'),
+(203, 'Birthday Bash', 103, 'Private', '2025-04-25', '17:00:00', '22:00:00', 'Ibalong Centrum for Recreation', 100, 'Tropical', 'Live band', '15:00:00', '23:00:00', 'Cancelled', '2025-03-05 09:30:00'),
+(204, 'Product Launch', 104, 'Corporate', '2025-04-30', '10:00:00', '14:00:00', 'Penaranda Park', 300, 'Modern', NULL, '08:00:00', '16:00:00', 'Upcoming', '2025-03-06 11:45:00'),
+(205, 'Anniversary Celebration', 105, 'Private', '2025-05-01', '12:00:00', '18:00:00', 'Cagsawa Ruins Park', 80, 'Garden', 'Fireworks', '10:00:00', '20:00:00', 'Upcoming', '2025-03-08 13:20:00'),
+(206, 'test', 101, 'Private', '2025-04-12', '10:25:00', '11:20:00', 'Lignon Hill Nature Park', 1, 'test', 'Wala naman', '12:00:00', '12:00:00', 'Upcoming', '2025-04-12 16:50:54'),
+(207, 'test', 101, 'Private', '2025-04-12', '16:58:56', '04:58:56', 'Pacific Mall Event Center', 1, 'test', 'wala naman', '16:58:56', '04:58:56', 'Upcoming', '2025-04-12 16:59:21'),
+(208, 'test', 101, 'Private', '2025-04-14', '03:32:15', '03:32:15', 'Legazpi Convention Center', 2, '2', 'wala', '03:32:15', '03:32:15', 'Upcoming', '2025-04-14 03:32:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_logs`
+--
+
+CREATE TABLE `login_logs` (
+  `id` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `Name` varchar(150) NOT NULL,
+  `Date` date NOT NULL,
+  `Time` time NOT NULL,
+  `UserLevelName` enum('Administrator','Accountant/Clerk','Staff','') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -197,7 +217,8 @@ INSERT INTO `service_availed` (`ServiceID`, `ServiceName`, `Description`, `Categ
 (303, 'Sound System', 'DJ + speakers', 'Audio-Visual', 3000.00, 'Per event', 'Available', 1, '01:00:00', 0, 200, 'staff2', '2025-03-05 09:30:00', NULL, 'Active'),
 (304, 'LED Wall', 'High-res LED video wall', 'Audio-Visual', 1500.00, 'Per hour', 'Unavailable', 1, '01:30:00', 0, 0, 'admin', '2025-03-06 11:45:00', NULL, 'Archived'),
 (305, 'Dessert Bar', 'Premium dessert station', 'Food', 250.00, 'Per guest', 'Available', 0, '00:45:00', 30, 150, 'staff3', '2025-03-08 13:20:00', NULL, 'Active'),
-(306, 'service', 'description', 'Decoration', 100.00, 'Per hour', 'Available', 1, '17:11:27', 1, 1, 'Admingogo', '2025-04-12 17:11:47', '2025-04-12 17:11:47', 'Active');
+(306, 'service', 'description', 'Decoration', 100.00, 'Per hour', 'Available', 1, '17:11:27', 1, 1, 'Admingogo', '2025-04-12 17:11:47', '2025-04-12 17:11:47', 'Active'),
+(307, 'test', 'twas', 'Decoration', 123.00, 'Per event', 'Available', 12, '03:32:41', 25, 25, 'Admingogo', '2025-04-14 03:32:57', '2025-04-14 03:32:57', 'Active');
 
 -- --------------------------------------------------------
 
@@ -256,6 +277,13 @@ ALTER TABLE `event`
   ADD KEY `CustomerID` (`CustomerID`);
 
 --
+-- Indexes for table `login_logs`
+--
+ALTER TABLE `login_logs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userID` (`userID`);
+
+--
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
@@ -284,19 +312,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
+
+--
+-- AUTO_INCREMENT for table `login_logs`
+--
+ALTER TABLE `login_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -308,13 +342,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `service_availed`
 --
 ALTER TABLE `service_availed`
-  MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=307;
+  MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -333,6 +367,12 @@ ALTER TABLE `booking`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`);
+
+--
+-- Constraints for table `login_logs`
+--
+ALTER TABLE `login_logs`
+  ADD CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payment`
