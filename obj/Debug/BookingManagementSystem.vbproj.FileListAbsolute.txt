@@ -30,3 +30,4 @@ C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSyste
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffVenueControl.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffDashboard.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.PasswordHasher.resources
+C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.ConnectSettingsForm.resources
