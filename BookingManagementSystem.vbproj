@@ -57,6 +57,8 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -128,6 +130,12 @@
       <DependentUpon>StaffCustomerControl.vb</DependentUpon>
     </Compile>
     <Compile Include="Control\Staff\StaffCustomerControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\Staff\StaffDashboardControl.Designer.vb">
+      <DependentUpon>StaffDashboardControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Staff\StaffDashboardControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Control\Staff\StaffVenueControl.Designer.vb">
@@ -217,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Control\Staff\StaffCustomerControl.resx">
       <DependentUpon>StaffCustomerControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Staff\StaffDashboardControl.resx">
+      <DependentUpon>StaffDashboardControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\Staff\StaffVenueControl.resx">
       <DependentUpon>StaffVenueControl.vb</DependentUpon>

@@ -7,7 +7,7 @@
     End Sub
 
     Private Sub StaffDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadContent(New StaffCustomerControl()) ' Load Booking as default
+        LoadContent(New StaffDashboardControl()) ' Load Booking as default
     End Sub
 
     Private Sub customersNav_Click(sender As Object, e As EventArgs) Handles customersNav.Click
@@ -25,6 +25,10 @@
     Private Sub logout_Click(sender As Object, e As EventArgs) Handles staffLogout.Click
         Me.Hide()
         Login.Show()
+    End Sub
+
+    Private Sub dashboardNav_Click(sender As Object, e As EventArgs) Handles dashboardNav.Click
+        LoadContent(New StaffDashboardControl())
     End Sub
 End Class
 

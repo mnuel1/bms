@@ -31,6 +31,8 @@ Partial Class StaffDashboard
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.customersNav = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.dashboardNav = New System.Windows.Forms.Button()
         Me.Panel5.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -38,6 +40,7 @@ Partial Class StaffDashboard
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel5
@@ -60,7 +63,7 @@ Partial Class StaffDashboard
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.venueNav)
-        Me.Panel3.Location = New System.Drawing.Point(3, 141)
+        Me.Panel3.Location = New System.Drawing.Point(3, 223)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(209, 45)
         Me.Panel3.TabIndex = 7
@@ -77,7 +80,7 @@ Partial Class StaffDashboard
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.bookingNav)
-        Me.Panel2.Location = New System.Drawing.Point(3, 90)
+        Me.Panel2.Location = New System.Drawing.Point(3, 172)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(209, 45)
         Me.Panel2.TabIndex = 6
@@ -94,7 +97,7 @@ Partial Class StaffDashboard
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.customersNav)
-        Me.Panel1.Location = New System.Drawing.Point(3, 39)
+        Me.Panel1.Location = New System.Drawing.Point(3, 121)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(209, 45)
         Me.Panel1.TabIndex = 5
@@ -117,6 +120,7 @@ Partial Class StaffDashboard
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Panel4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel5)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
@@ -129,6 +133,23 @@ Partial Class StaffDashboard
         Me.SplitContainer1.Size = New System.Drawing.Size(800, 450)
         Me.SplitContainer1.SplitterDistance = 214
         Me.SplitContainer1.TabIndex = 1
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.dashboardNav)
+        Me.Panel4.Location = New System.Drawing.Point(3, 74)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(209, 45)
+        Me.Panel4.TabIndex = 6
+        '
+        'dashboardNav
+        '
+        Me.dashboardNav.Location = New System.Drawing.Point(0, 4)
+        Me.dashboardNav.Name = "dashboardNav"
+        Me.dashboardNav.Size = New System.Drawing.Size(206, 38)
+        Me.dashboardNav.TabIndex = 0
+        Me.dashboardNav.Text = "Dashboard"
+        Me.dashboardNav.UseVisualStyleBackColor = True
         '
         'StaffDashboard
         '
@@ -147,6 +168,7 @@ Partial Class StaffDashboard
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -160,4 +182,6 @@ Partial Class StaffDashboard
     Friend WithEvents Panel1 As Panel
     Friend WithEvents customersNav As Button
     Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents dashboardNav As Button
 End Class

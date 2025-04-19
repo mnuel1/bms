@@ -10,6 +10,11 @@ Public Class AccountantPaymentControl
     Private txtAmountPaid, txtReference, txtBalance, txtDiscount, txtRefunded, txtRemarks, txtORNumber As TextBox
 
     Private cmbPaymentMethod, cmbPaymentStatus, cmbBookingID As ComboBox
+
+    Private Sub AccountantPaymentControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
     Private dtpPaymentDate, dtpPaymentTime As DateTimePicker
 
 
