@@ -39,12 +39,14 @@ Public Class StaffDashboardControl
 
     Private Sub LoadMonthlyRevenue()
         Dim query As String = "
-            SELECT FORMAT(PaymentDate, 'yyyy-MM') AS [Month], 
-                   SUM(AmountPaid) AS TotalRevenue 
-            FROM payment 
-            WHERE PaymentStatus = 'Completed' 
-            GROUP BY FORMAT(PaymentDate, 'yyyy-MM') 
-            ORDER BY [Month]"
+        SELECT 
+            DATE_FORMAT(PaymentDate, '%Y-%m') AS `Month`,
+            SUM(AmountPaid) AS TotalRevenue
+        FROM payment
+        WHERE PaymentStatus IN ('Full', 'Partial', 'Overpaid')
+        GROUP BY `Month`
+        ORDER BY `Month`"
+
         Dim dt As DataTable = GetData(query)
 
         With ChartRevenue
@@ -55,12 +57,18 @@ Public Class StaffDashboardControl
             .Titles.Add("Monthly Revenue")
             .Series.Add("Revenue")
             .Series("Revenue").ChartType = SeriesChartType.Column
+            .Legends.Clear()
+            .Legends.Add("Legend1")
 
             For Each row As DataRow In dt.Rows
-                .Series("Revenue").Points.AddXY(row("Month").ToString(), Convert.ToDecimal(row("TotalRevenue")))
+                .Series("Revenue").Points.AddXY(
+                row("Month").ToString(),
+                Convert.ToDecimal(row("TotalRevenue"))
+            )
             Next
         End With
     End Sub
+
 
     Private Sub LoadBookingsOverTime()
         Dim query As String = "
@@ -77,9 +85,13 @@ Public Class StaffDashboardControl
             .ChartAreas.Add(New ChartArea("Area1"))
             .Titles.Clear()
             .Titles.Add("Bookings Over Time")
+            .Legends.Clear()
+            .Legends.Add("Legend1")
+            .Legends("Legend1").Docking = Docking.Bottom
             .Series.Add("Bookings")
             .Series("Bookings").ChartType = SeriesChartType.Line
             .Series("Bookings").BorderWidth = 2
+
 
             For Each row As DataRow In dt.Rows
                 .Series("Bookings").Points.AddXY(CDate(row("BookingDay")).ToShortDateString(), Convert.ToInt32(row("TotalBookings")))
@@ -100,9 +112,13 @@ Public Class StaffDashboardControl
             .ChartAreas.Add(New ChartArea("Area1"))
             .Titles.Clear()
             .Titles.Add("Customer Types")
+            .Legends.Clear()
+            .Legends.Add("Legend1")
+            .Legends("Legend1").Docking = Docking.Bottom
             .Series.Add("CustomerTypes")
             .Series("CustomerTypes").ChartType = SeriesChartType.Pie
             .Series("CustomerTypes").IsValueShownAsLabel = True
+
 
             For Each row As DataRow In dt.Rows
                 .Series("CustomerTypes").Points.AddXY(row("CustomerType").ToString(), Convert.ToInt32(row("Total")))
