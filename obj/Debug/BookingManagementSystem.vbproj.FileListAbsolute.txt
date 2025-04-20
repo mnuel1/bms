@@ -32,3 +32,34 @@ C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSyste
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.PasswordHasher.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.ConnectSettingsForm.resources
 C:\Users\Manuel Marin\Desktop\bms\BookingManagementSystem\BookingManagementSystem\obj\Debug\BookingManagementSystem.StaffDashboardControl.resources
+C:\Users\creat\BMS\bin\Debug\BookingManagementSystem.exe
+C:\Users\creat\BMS\bin\Debug\BookingManagementSystem.exe.config
+C:\Users\creat\BMS\bin\Debug\MySql.Data.dll
+C:\Users\creat\BMS\bin\Debug\MySql.Data.xml
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.vbproj.AssemblyReference.cache
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.exe.config
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.AccountantBookingControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.AccountantPaymentControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.AccountantRefundControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.ComboItem.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.CustomersControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.StaffBookingControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.StaffCustomerControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.StaffDashboardControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.StaffVenueControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.UsersControl.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.Form1.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.ConnectSettingsForm.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.AdminDashboard.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.ClerkDashboard.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.StaffDashboard.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.PasswordHasher.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.Resources.resources
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.vbproj.GenerateResource.cache
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.vbproj.CoreCompileInputs.cache
+C:\Users\creat\BMS\obj\Debug\BookingM.30D32108.Up2Date
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.exe
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.xml
+C:\Users\creat\BMS\obj\Debug\BookingManagementSystem.pdb
+C:\Users\creat\BMS\bin\Debug\BookingManagementSystem.pdb
+C:\Users\creat\BMS\bin\Debug\BookingManagementSystem.xml

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ClerkDashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ClerkDashboard
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -33,8 +33,10 @@ Partial Class ClerkDashboard
         Me.paymentNav = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.bookingsNav = New System.Windows.Forms.Button()
+        Me.lblTitle = New System.Windows.Forms.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -52,104 +54,116 @@ Partial Class ClerkDashboard
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lblTitle)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel5)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel1)
-        Me.SplitContainer1.Panel1.Padding = New System.Windows.Forms.Padding(5)
+        Me.SplitContainer1.Panel1.Padding = New System.Windows.Forms.Padding(10)
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(5)
+        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(10)
         Me.SplitContainer1.Size = New System.Drawing.Size(643, 450)
-        Me.SplitContainer1.SplitterDistance = 214
+        Me.SplitContainer1.SplitterDistance = 250
         Me.SplitContainer1.TabIndex = 0
         '
         'Panel5
         '
         Me.Panel5.Controls.Add(Me.accountantLogout)
-        Me.Panel5.Location = New System.Drawing.Point(3, 340)
+        Me.Panel5.Location = New System.Drawing.Point(10, 430)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(209, 45)
+        Me.Panel5.Size = New System.Drawing.Size(230, 50)
         Me.Panel5.TabIndex = 9
         '
         'accountantLogout
         '
-        Me.accountantLogout.Location = New System.Drawing.Point(0, 4)
+        Me.accountantLogout.Location = New System.Drawing.Point(5, 5)
         Me.accountantLogout.Name = "accountantLogout"
-        Me.accountantLogout.Size = New System.Drawing.Size(206, 38)
+        Me.accountantLogout.Size = New System.Drawing.Size(220, 40)
         Me.accountantLogout.TabIndex = 0
         Me.accountantLogout.Text = "Logout"
-        Me.accountantLogout.UseVisualStyleBackColor = True
+        Me.accountantLogout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.reportsNav)
-        Me.Panel4.Location = New System.Drawing.Point(3, 192)
+        Me.Panel4.Location = New System.Drawing.Point(10, 270)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(209, 45)
+        Me.Panel4.Size = New System.Drawing.Size(230, 50)
         Me.Panel4.TabIndex = 8
         '
         'reportsNav
         '
-        Me.reportsNav.Location = New System.Drawing.Point(0, 4)
+        Me.reportsNav.Location = New System.Drawing.Point(5, 5)
         Me.reportsNav.Name = "reportsNav"
-        Me.reportsNav.Size = New System.Drawing.Size(206, 38)
+        Me.reportsNav.Size = New System.Drawing.Size(220, 40)
         Me.reportsNav.TabIndex = 0
         Me.reportsNav.Text = "Reports"
-        Me.reportsNav.UseVisualStyleBackColor = True
+        Me.reportsNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel3
         '
         Me.Panel3.Controls.Add(Me.refundNav)
-        Me.Panel3.Location = New System.Drawing.Point(3, 141)
+        Me.Panel3.Location = New System.Drawing.Point(10, 210)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(209, 45)
+        Me.Panel3.Size = New System.Drawing.Size(230, 50)
         Me.Panel3.TabIndex = 7
         '
         'refundNav
         '
-        Me.refundNav.Location = New System.Drawing.Point(0, 4)
+        Me.refundNav.Location = New System.Drawing.Point(5, 5)
         Me.refundNav.Name = "refundNav"
-        Me.refundNav.Size = New System.Drawing.Size(206, 38)
+        Me.refundNav.Size = New System.Drawing.Size(220, 40)
         Me.refundNav.TabIndex = 0
         Me.refundNav.Text = "Refunds and Discounts"
-        Me.refundNav.UseVisualStyleBackColor = True
+        Me.refundNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel2
         '
         Me.Panel2.Controls.Add(Me.paymentNav)
-        Me.Panel2.Location = New System.Drawing.Point(3, 90)
+        Me.Panel2.Location = New System.Drawing.Point(10, 150)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(209, 45)
+        Me.Panel2.Size = New System.Drawing.Size(230, 50)
         Me.Panel2.TabIndex = 6
         '
         'paymentNav
         '
-        Me.paymentNav.Location = New System.Drawing.Point(0, 4)
+        Me.paymentNav.Location = New System.Drawing.Point(5, 5)
         Me.paymentNav.Name = "paymentNav"
-        Me.paymentNav.Size = New System.Drawing.Size(206, 38)
+        Me.paymentNav.Size = New System.Drawing.Size(220, 40)
         Me.paymentNav.TabIndex = 0
         Me.paymentNav.Text = "Record Payment"
-        Me.paymentNav.UseVisualStyleBackColor = True
+        Me.paymentNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.bookingsNav)
-        Me.Panel1.Location = New System.Drawing.Point(3, 39)
+        Me.Panel1.Location = New System.Drawing.Point(10, 90)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(209, 45)
+        Me.Panel1.Size = New System.Drawing.Size(230, 50)
         Me.Panel1.TabIndex = 5
         '
         'bookingsNav
         '
-        Me.bookingsNav.Location = New System.Drawing.Point(0, 4)
+        Me.bookingsNav.Location = New System.Drawing.Point(5, 5)
         Me.bookingsNav.Name = "bookingsNav"
-        Me.bookingsNav.Size = New System.Drawing.Size(206, 38)
+        Me.bookingsNav.Size = New System.Drawing.Size(220, 40)
         Me.bookingsNav.TabIndex = 0
         Me.bookingsNav.Text = "Bookings"
-        Me.bookingsNav.UseVisualStyleBackColor = True
+        Me.bookingsNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.lblTitle.Location = New System.Drawing.Point(10, 30)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(150, 27)
+        Me.lblTitle.TabIndex = 10
+        Me.lblTitle.Text = "Clerk Dashboard"
         '
         'ClerkDashboard
         '
@@ -157,11 +171,13 @@ Partial Class ClerkDashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(643, 450)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "ClerkDashboard"
-        Me.Text = "Clerk & Accountant Dashboard"
+        Me.Text = "Clerk Dashboard"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
@@ -184,4 +200,5 @@ Partial Class ClerkDashboard
     Friend WithEvents paymentNav As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents bookingsNav As Button
+    Friend WithEvents lblTitle As Label
 End Class
