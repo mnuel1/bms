@@ -306,14 +306,14 @@ Public Class AccountantBookingControl
             .Dock = DockStyle.Fill,
             .Padding = New Padding(1),
             .BackColor = Color.LightGray,
-            .AutoScroll = True
+            .AutoScroll = False
         }
 
         ' Setup the DataGridView
         dgvPayments = New DataGridView With {
             .Dock = DockStyle.Fill,
             .ReadOnly = True,
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells,
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None,
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect,
             .AllowUserToAddRows = False,
             .BackgroundColor = Color.White,
@@ -453,6 +453,19 @@ Public Class AccountantBookingControl
 
             ' Hide some columns to simplify the view
             If dgvPayments.Columns.Contains("PaymentID") Then dgvPayments.Columns("PaymentID").Visible = False
+            If dgvPayments.Columns.Contains("PaymentID") Then dgvPayments.Columns("PaymentID").Width = 60
+            If dgvPayments.Columns.Contains("PaymentDate") Then dgvPayments.Columns("PaymentDate").Width = 100
+            If dgvPayments.Columns.Contains("PaymentTime") Then dgvPayments.Columns("PaymentTime").Width = 80
+            If dgvPayments.Columns.Contains("AmountPaid") Then dgvPayments.Columns("AmountPaid").Width = 110
+            If dgvPayments.Columns.Contains("PaymentMethod") Then dgvPayments.Columns("PaymentMethod").Width = 110
+            If dgvPayments.Columns.Contains("ReferenceNumber") Then dgvPayments.Columns("ReferenceNumber").Width = 120
+            If dgvPayments.Columns.Contains("PaymentStatus") Then dgvPayments.Columns("PaymentStatus").Width = 100
+            If dgvPayments.Columns.Contains("ProcessedBy") Then dgvPayments.Columns("ProcessedBy").Width = 120
+            If dgvPayments.Columns.Contains("Balance") Then dgvPayments.Columns("Balance").Width = 100
+            If dgvPayments.Columns.Contains("DiscountAmount") Then dgvPayments.Columns("DiscountAmount").Width = 100
+            If dgvPayments.Columns.Contains("RefundedAmount") Then dgvPayments.Columns("RefundedAmount").Width = 100
+            If dgvPayments.Columns.Contains("Remarks") Then dgvPayments.Columns("Remarks").Width = 200
+            If dgvPayments.Columns.Contains("ORNumber") Then dgvPayments.Columns("ORNumber").Width = 100
         End If
 
         ' Show/hide appropriate elements
@@ -619,7 +632,7 @@ Public Class AccountantBookingControl
 
                 ' Set all rows to fixed height
                 mainContainer.RowStyles.Clear()
-                mainContainer.RowStyles.Add(New RowStyle(SizeType.Absolute, 50))     ' Header
+                mainContainer.RowStyles.Add(New RowStyle(SizeType.Absolute, 80))     ' Header
                 mainContainer.RowStyles.Add(New RowStyle(SizeType.Absolute, 250))    ' Bookings 
                 mainContainer.RowStyles.Add(New RowStyle(SizeType.Absolute, 220))    ' Customer
                 mainContainer.RowStyles.Add(New RowStyle(SizeType.Absolute, 300))    ' Payments
