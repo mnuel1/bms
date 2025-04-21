@@ -22,94 +22,28 @@ Partial Class StaffDashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.staffLogout = New System.Windows.Forms.Button()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.dashboardNav = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.venueNav = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.bookingNav = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.customersNav = New System.Windows.Forms.Button()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.dashboardNav = New System.Windows.Forms.Button()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer1.Panel1.SuspendLayout()
-        Me.SplitContainer1.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Panel5
-        '
-        Me.Panel5.Controls.Add(Me.staffLogout)
-        Me.Panel5.Location = New System.Drawing.Point(3, 340)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(209, 45)
-        Me.Panel5.TabIndex = 9
-        '
-        'staffLogout
-        '
-        Me.staffLogout.Location = New System.Drawing.Point(0, 4)
-        Me.staffLogout.Name = "staffLogout"
-        Me.staffLogout.Size = New System.Drawing.Size(206, 38)
-        Me.staffLogout.TabIndex = 0
-        Me.staffLogout.Text = "Logout"
-        Me.staffLogout.UseVisualStyleBackColor = True
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.venueNav)
-        Me.Panel3.Location = New System.Drawing.Point(3, 223)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(209, 45)
-        Me.Panel3.TabIndex = 7
-        '
-        'venueNav
-        '
-        Me.venueNav.Location = New System.Drawing.Point(0, 4)
-        Me.venueNav.Name = "venueNav"
-        Me.venueNav.Size = New System.Drawing.Size(206, 38)
-        Me.venueNav.TabIndex = 0
-        Me.venueNav.Text = "Venues"
-        Me.venueNav.UseVisualStyleBackColor = True
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.bookingNav)
-        Me.Panel2.Location = New System.Drawing.Point(3, 172)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(209, 45)
-        Me.Panel2.TabIndex = 6
-        '
-        'bookingNav
-        '
-        Me.bookingNav.Location = New System.Drawing.Point(0, 4)
-        Me.bookingNav.Name = "bookingNav"
-        Me.bookingNav.Size = New System.Drawing.Size(206, 38)
-        Me.bookingNav.TabIndex = 0
-        Me.bookingNav.Text = "Bookings"
-        Me.bookingNav.UseVisualStyleBackColor = True
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.customersNav)
-        Me.Panel1.Location = New System.Drawing.Point(3, 121)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(209, 45)
-        Me.Panel1.TabIndex = 5
-        '
-        'customersNav
-        '
-        Me.customersNav.Location = New System.Drawing.Point(0, 4)
-        Me.customersNav.Name = "customersNav"
-        Me.customersNav.Size = New System.Drawing.Size(206, 38)
-        Me.customersNav.TabIndex = 0
-        Me.customersNav.Text = "Customers"
-        Me.customersNav.UseVisualStyleBackColor = True
         '
         'SplitContainer1
         '
@@ -120,36 +54,116 @@ Partial Class StaffDashboard
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Panel4)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lblTitle)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel5)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Panel4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel1)
-        Me.SplitContainer1.Panel1.Padding = New System.Windows.Forms.Padding(5)
+        Me.SplitContainer1.Panel1.Padding = New System.Windows.Forms.Padding(10)
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(5)
+        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(10)
         Me.SplitContainer1.Size = New System.Drawing.Size(800, 450)
-        Me.SplitContainer1.SplitterDistance = 214
+        Me.SplitContainer1.SplitterDistance = 250
         Me.SplitContainer1.TabIndex = 1
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.staffLogout)
+        Me.Panel5.Location = New System.Drawing.Point(10, 430)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(230, 50)
+        Me.Panel5.TabIndex = 9
+        '
+        'staffLogout
+        '
+        Me.staffLogout.Location = New System.Drawing.Point(5, 5)
+        Me.staffLogout.Name = "staffLogout"
+        Me.staffLogout.Size = New System.Drawing.Size(220, 40)
+        Me.staffLogout.TabIndex = 0
+        Me.staffLogout.Text = "Logout"
+        Me.staffLogout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.dashboardNav)
-        Me.Panel4.Location = New System.Drawing.Point(3, 74)
+        Me.Panel4.Location = New System.Drawing.Point(10, 90)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(209, 45)
-        Me.Panel4.TabIndex = 6
+        Me.Panel4.Size = New System.Drawing.Size(230, 50)
+        Me.Panel4.TabIndex = 8
         '
         'dashboardNav
         '
-        Me.dashboardNav.Location = New System.Drawing.Point(0, 4)
+        Me.dashboardNav.Location = New System.Drawing.Point(5, 5)
         Me.dashboardNav.Name = "dashboardNav"
-        Me.dashboardNav.Size = New System.Drawing.Size(206, 38)
+        Me.dashboardNav.Size = New System.Drawing.Size(220, 40)
         Me.dashboardNav.TabIndex = 0
         Me.dashboardNav.Text = "Dashboard"
-        Me.dashboardNav.UseVisualStyleBackColor = True
+        Me.dashboardNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.venueNav)
+        Me.Panel3.Location = New System.Drawing.Point(10, 270)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(230, 50)
+        Me.Panel3.TabIndex = 7
+        '
+        'venueNav
+        '
+        Me.venueNav.Location = New System.Drawing.Point(5, 5)
+        Me.venueNav.Name = "venueNav"
+        Me.venueNav.Size = New System.Drawing.Size(220, 40)
+        Me.venueNav.TabIndex = 0
+        Me.venueNav.Text = "Venues"
+        Me.venueNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.bookingNav)
+        Me.Panel2.Location = New System.Drawing.Point(10, 210)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(230, 50)
+        Me.Panel2.TabIndex = 6
+        '
+        'bookingNav
+        '
+        Me.bookingNav.Location = New System.Drawing.Point(5, 5)
+        Me.bookingNav.Name = "bookingNav"
+        Me.bookingNav.Size = New System.Drawing.Size(220, 40)
+        Me.bookingNav.TabIndex = 0
+        Me.bookingNav.Text = "Bookings"
+        Me.bookingNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.customersNav)
+        Me.Panel1.Location = New System.Drawing.Point(10, 150)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(230, 50)
+        Me.Panel1.TabIndex = 5
+        '
+        'customersNav
+        '
+        Me.customersNav.Location = New System.Drawing.Point(5, 5)
+        Me.customersNav.Name = "customersNav"
+        Me.customersNav.Size = New System.Drawing.Size(220, 40)
+        Me.customersNav.TabIndex = 0
+        Me.customersNav.Text = "Customers"
+        Me.customersNav.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Comic Sans MS", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.lblTitle.Location = New System.Drawing.Point(10, 30)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(150, 27)
+        Me.lblTitle.TabIndex = 10
+        Me.lblTitle.Text = "Staff Dashboard"
         '
         'StaffDashboard
         '
@@ -157,31 +171,34 @@ Partial Class StaffDashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "StaffDashboard"
-        Me.Text = "StaffDashboard"
+        Me.Text = "Staff Dashboard"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
-        Me.SplitContainer1.Panel1.ResumeLayout(False)
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer1.ResumeLayout(False)
-        Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
+    Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents Panel5 As Panel
     Friend WithEvents staffLogout As Button
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents dashboardNav As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents venueNav As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents bookingNav As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents customersNav As Button
-    Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents dashboardNav As Button
+    Friend WithEvents lblTitle As Label
 End Class
