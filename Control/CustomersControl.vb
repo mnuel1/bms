@@ -6,6 +6,8 @@ Public Class CustomersControl
     Inherits UserControl
 
     Private customersGrid As DataGridView
+    Private originalCustomerData As DataTable
+
     Private txtFirstName, txtLastName, txtMiddleName, txtContact, txtEmail, txtAddress, txtCity, txtProvince, txtZip As TextBox
     Private cmbCustomerType, cmbGender, cmbStatus As ComboBox
     Private dtpBirthDate, dtpRegistrationDate As DateTimePicker
@@ -312,21 +314,22 @@ Public Class CustomersControl
 
     Private Sub SearchBox_TextChanged(sender As Object, e As EventArgs)
         Try
-            If customersGrid.DataSource IsNot Nothing AndAlso TypeOf customersGrid.DataSource Is DataTable Then
-                Dim dt As DataTable = DirectCast(customersGrid.DataSource, DataTable)
-                Dim dv As New DataView(dt)
+            If originalCustomerData IsNot Nothing Then
+                Dim dv As New DataView(originalCustomerData)
 
                 If Not String.IsNullOrWhiteSpace(searchBox.Text) Then
                     dv.RowFilter = String.Format("FirstName LIKE '%{0}%' OR LastName LIKE '%{0}%' OR Email LIKE '%{0}%' OR ContactNumber LIKE '%{0}%'",
-                        searchBox.Text.Replace("'", "''"))
+                                                searchBox.Text.Replace("'", "''"))
+                    customersGrid.DataSource = dv.ToTable()
+                Else
+                    customersGrid.DataSource = originalCustomerData ' Reset to original data
                 End If
-
-                customersGrid.DataSource = dv.ToTable()
             End If
         Catch ex As Exception
             MessageBox.Show("Error filtering data: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     Private Sub LoadCustomers()
         Try
@@ -343,7 +346,9 @@ Public Class CustomersControl
             "
 
             Dim dt As DataTable = GetData(query)
-            customersGrid.DataSource = dt
+            originalCustomerData = dt.Copy()
+            customersGrid.DataSource = originalCustomerData
+
 
             ' Format the grid after loading data
             If customersGrid.Columns.Count > 0 Then
